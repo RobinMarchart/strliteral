@@ -7,7 +7,10 @@ class ConanLiteral(ConanFile):
     description = "tool used to embed data as string literal"
     license = "MIT"
     settings = "os", "compiler", "build_type", "arch"
-    exports_sources = "meson.build", "strliteral.cpp"
+    exports_sources = "meson.build", "strliteral.cpp", "LICENSE"
+
+    def configure(self):
+        tools.check_min_cppstd(self, "17")
 
     def build(self):
         meson = Meson(self, build_type="release")

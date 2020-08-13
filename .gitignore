@@ -2,3 +2,7 @@ build
 compile_commands.json
 .clangd
 .ccls-cache
+/graph_info.json
+/conaninfo.txt
+/conanbuildinfo.txt
+/conan.lock
