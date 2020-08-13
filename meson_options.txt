@@ -1,0 +1,2 @@
+option('build_tool',type:'boolean',value:'true',description:'Build using native compiler')
+option('build_test',type:'boolean',value:'true')

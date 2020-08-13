@@ -85,8 +85,7 @@ void process_file(std::istream &in, std::ostream &out, std::string_view name) {
   out << "#if defined _WIN32 || defined __CYGWIN__\n"
          "#define _STRLITERAL_EXPORT_SYMBOL __declspec(dllexport)\n"
          "#elif defined __GNUC__\n"
-         "#define _STRLITERAL_EXPORT_SYMBOL __attribute__((visibility(\" "
-         "default \")))\n"
+         "#define _STRLITERAL_EXPORT_SYMBOL [[gnu::visibility(\"default\")]]\n"
          "#else\n"
          "#define _STRLITERAL_EXPORT_SYMBOL\n"
          "#endif\n"
@@ -131,7 +130,7 @@ void process_file(std::istream &in, std::ostream &out, std::string_view name) {
     out.write(out_buffer.data(), out_used);
   }
   if (in.eof() && out.good()) {
-    out << "extern const constexpr std::size_t " << name
+    out << ";extern const constexpr std::size_t " << name
         << "_size = " << length + 1
         << ";\n"
            "#undef _STRLITERAL_EXPORT_SYMBOL"
@@ -152,6 +151,7 @@ int main(int argc, char *argv[]) {
     if (str == "-o") {
       if (x + 2 < argc) {
         x++;
+        { std::ofstream output(argv[x]); }
         of = std::make_unique<std::ofstream>(
             argv[x], std::ios_base::in | std::ios_base::binary);
         o = *of;

@@ -6,3 +6,5 @@ compile_commands.json
 /conaninfo.txt
 /conanbuildinfo.txt
 /conan.lock
+subprojects/Catch2-2.11.3
+subprojects/packagecache
