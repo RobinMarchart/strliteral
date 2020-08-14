@@ -5,7 +5,6 @@ arch-gcc:
     - docker
   image:
     name: robinmarchart/meson-builder:arch-gcc
-    entrypoint: ["/bin/bash"]
   script:
     - "meson build-arch-gcc -Dbuild_test=true"
     - "cd build-arch-gcc;meson test"
