@@ -7,5 +7,5 @@ arch-gcc:
     name: robinmarchart/meson-builder:arch-gcc
     entrypoint: ["/bin/bash"]
   script:
-    - "meson build-arch-gcc"
+    - "meson build-arch-gcc -Dbuild_test=true"
     - "cd build-arch-gcc;meson test"
