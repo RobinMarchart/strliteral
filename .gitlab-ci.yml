@@ -1,0 +1,11 @@
+
+
+arch-gcc:
+  tags:
+    - docker
+  image:
+    name: robinmarchart/meson-builder:arch-gcc
+    entrypoint: ["/bin/bash"]
+  script:
+    - "meson build-arch-gcc"
+    - "cd build-arch-gcc;meson test"
