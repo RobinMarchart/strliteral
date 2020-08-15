@@ -4,15 +4,37 @@ default:
     expose_as: testlog
     expire_in: 30 days
     paths:
-      - build-arch-gcc/meson.logs/testlog.json
-      - build-arch-gcc/meson.logs/testlog.junit.xml
-      - build-arch-gcc/meson.logs/testlog.txt
-
+      - build/meson-logs/testlog.junit.xml
+      - build/meson-logs/testlog.txt
 arch-gcc:
   tags:
     - docker
   image:
     name: robinmarchart/meson-builder:arch-gcc
   script:
-    - "meson build-arch-gcc -Dbuild_test=true"
-    - "cd build-arch-gcc;meson test"
+    - "meson build -Dbuild_test=true"
+    - "cd build;meson test"
+arch-clang:
+  tags:
+    - docker
+  image:
+    name: robinmarchart/meson-builder:arch-clang
+  script:
+    - "meson build -Dbuild_test=true"
+    - "cd build;meson test"
+debian-gcc:
+  tags:
+    - docker
+  image:
+    name: robinmarchart/meson-builder:arch-gcc
+  script:
+    - "meson build -Dbuild_test=true"
+    - "cd build;meson test"
+debian-gcc:
+  tags:
+    - docker
+  image:
+    name: robinmarchart/meson-builder:arch-gcc
+  script:
+    - "meson build -Dbuild_test=true"
+    - "cd build;meson test"
