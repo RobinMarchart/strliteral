@@ -4,9 +4,9 @@ default:
     expose_as: testlog
     expire_in: 30 days
     paths:
-      - build/meson.logs/testlog.json
-      - build/meson.logs/testlog.junit.xml
-      - build/meson.logs/testlog.txt
+      - build-arch-gcc/meson.logs/testlog.json
+      - build-arch-gcc/meson.logs/testlog.junit.xml
+      - build-arch-gcc/meson.logs/testlog.txt
 
 arch-gcc:
   tags:
