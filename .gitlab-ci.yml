@@ -1,10 +1,5 @@
 default:
   interruptible: true
-  artifacts:
-    expose_as: testlog
-    expire_in: 30 days
-    paths:
-      - build/meson-logs
 arch-gcc:
   tags:
     - docker
