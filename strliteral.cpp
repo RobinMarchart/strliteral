@@ -151,9 +151,8 @@ int main(int argc, char *argv[]) {
     if (str == "-o") {
       if (x + 2 < argc) {
         x++;
-        { std::ofstream output(argv[x]); }
-        of = std::make_unique<std::ofstream>(
-            argv[x], std::ios_base::in | std::ios_base::binary);
+        of = std::make_unique<std::ofstream>(argv[x], std::ios_base::out |
+                                                          std::ios_base::trunc);
         o = *of;
       } else
         failure();
@@ -161,7 +160,7 @@ int main(int argc, char *argv[]) {
       if (x + 2 < argc) {
         x++;
         inf = std::make_unique<std::ifstream>(
-            argv[x], std::ios_base::out | std::ios_base::trunc);
+            argv[x], std::ios_base::in | std::ios_base::binary);
         i = *inf;
       } else
         failure();

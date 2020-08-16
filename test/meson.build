@@ -15,4 +15,4 @@ catch2=subproject('catch2').get_variable('catch2_dep')
 
 strliteral_test=executable('strliteral_test',['strliteral_test.cpp',empty,random,big_random],dependencies:catch2)
 
-test('string literal test',strliteral_test)
+test('string literal test',strliteral_test,args:['-s'])
