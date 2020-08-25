@@ -1,6 +1,4 @@
 #include <array>
-#include <bits/c++config.h>
-#include <bits/stdint-uintn.h>
 #include <cassert>
 #include <cstdint>
 #include <cstdlib>
