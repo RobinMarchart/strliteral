@@ -30,6 +30,9 @@ jobs:
         with:
           image: arch-clang
           sanitizer: ${{ matrix.sanitizer }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
     
   build:
     runs-on: ubuntu-latest
@@ -43,3 +46,6 @@ jobs:
         uses: robinmarchart/meson-builder@master
         with:
           image: ${{ matrix.image }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
